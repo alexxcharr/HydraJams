@@ -1,0 +1,27 @@
+s0.initScreen(0)
+
+a.show()
+
+src(s0).out()
+
+
+src(s0)
+.scale(-1.03, [1.03, 1.99, -1.01].fast(0.02))
+.scrollX(() => a.fft[0] * 0.5, -0.1)
+//.invert()
+//.repeat()
+.saturate(1.16666)
+//.hue(1.4, 1.2)
+.color(1.001, 0.9, 1.66666)
+//.scrollY(0.1, () => a.fft[3] )
+//.modulateScrollY(noise(2, 0.01, 0.01))
+.blend(o0, 0.8)
+.add(shape(30, 0.1).repeat(5).mult(osc(80, 0.01, 1.2)).modulate(osc(5, 0.1), 0.4))
+//.add(osc(215, 0.1, 0.7).modulate(osc(2)).mult(shape(900)).repeat(5))
+//.saturate(0.994449944)
+.add(noise(() => a.fft[2] * 10, 0.1, 1.2).modulate(o0,0.3).color(1.2, 0.4, 1.3), 0.1)
+//.contrast(1.01)
+//.rotate(() => Math.sin(time * 0.1))
+//.saturate(1.07)
+.modulate(o0, 0.001)
+.out()

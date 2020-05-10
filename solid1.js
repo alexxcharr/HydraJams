@@ -1,0 +1,15 @@
+a.show()
+a.setBins(6)
+
+
+solid(()=>Math.sin(time *0.33), ()=>Math.sin(time* 0.1), ()=>Math.sin(time * 0.73))
+.add(osc(5, ()=>a.fft[3] * 0.0001).modulate(noise().contrast(1.1).kaleid()))
+.shift(()=>a.fft[1], ()=> a.fft[0], ()=>a.fft[4])
+.diff(voronoi(12).scale(a.fft[1] +1).rotate(()=>Math.cos(time * 0.14).modulate(osc())))
+.blend(o0)
+.mult(shape(30, 0.1).modulate(osc(3)).contrast(1.2).repeat(20).scrollY(0.1, 0.2).scale(1.6).invert().modulate(noise()))
+.hue(0.1)
+//.kaleid(2)
+.modulate(o0, 0.1)
+.diff(gradient(0.25,0.4,0.3))
+.out()

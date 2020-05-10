@@ -1,0 +1,16 @@
+osc(10, 0.1, 0.2).out()
+
+
+osc(8, 0.1, 0.75)
+//.contrast(1.09)
+//.hue(0.2)
+//.add(osc(2).invert())
+.saturate(1.4)
+//.diff(osc(4, 0.1, 0.75).kaleid(3).modulate(noise(6)))
+.diff(noise(4).modulate(osc()))
+.add(solid(()=>Math.sin(time) *0.1).modulate(osc(7)))
+.diff(osc(6).kaleid(4).scrollX(0.1, 0.1))
+.add(noise())
+.blend(o0)
+.modulate(o0, 0.12)
+.out()

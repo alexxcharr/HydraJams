@@ -1,0 +1,15 @@
+a.show()
+a.setBins(6)
+
+
+gradient((Math.sin(time + a.fft[0])))
+.diff(osc(3).modulate(o0).add(noise(6).modulate(o0).scale(()=>a.fft[1]* 0.1 +1).kaleid(3)))
+.modulate(o0)
+.hue(0.3)
+//.diff(noise(2).scale(()=>a.fft[2]+1).shift(0.1, 0.07))
+.diff(osc(8).kaleid())
+//.blend(osc(6, 0.1, ()=>a.fft[3]).kaleid(3).diff(osc(3).modulate(voronoi(4))))
+//.modulate(shape(20, 0.3, 0.1).scale(()=>Math.sin(time)* 0.1 +1).repeat(10).modulate(osc(6).invert()))
+//.shift(()=>a.fft[0] * 0.1)
+.blend(o0)
+.out()
